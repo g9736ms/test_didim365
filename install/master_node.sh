@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-
 check_status(){
 	if [ "$?" == "0" ]; then
 		echo "complete"
@@ -32,8 +31,8 @@ ask(){
 	read -p "What hostname will you use? " hostN
 	hostnamectl set-hostname $hostN
 	echo "$IP $hostN" >> /etc/hosts
-	echo "echo $IP $hostN >> /etc/hosts" >> /root/wocker_node.sh
-	cat /root/kubeinit.txt |tail -n 2 >> /root/wocker_node.sh
+	echo "echo $IP $hostN >> /etc/hosts" >> $PWD/wocker_node.sh
+	cat $PWD/kubeinit.txt |tail -n 2 >> $PWD/wocker_node.sh
 }
 
 mk_master(){
@@ -43,9 +42,9 @@ mk_master(){
 	echo "set kubeadm , wait a few minite"
 	echo "================================"
 	
-	sudo kubeadm init --token 123456.1234567890123456 --token-ttl 0 --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=$IP > /root/kubeinit.txt
+	sudo kubeadm init --token 123456.1234567890123456 --token-ttl 0 --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=$IP > $PWD/kubeinit.txt
 	check_status
-	echo "Execution contents can be checked in /root/kubeinit.txt "
+	echo "Execution contents can be checked in $PWD/kubeinit.txt "
 	
 	mkdir -p $HOME/.kube
 	sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -73,5 +72,5 @@ echo ""
 echo "============================================="
 echo "======= Apply it to your workernodes. ======="
 echo "============================================="
-cat /root/wocker_node.sh
+cat $PWD/wocker_node.sh
 
