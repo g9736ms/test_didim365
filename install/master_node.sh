@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 check_status(){
 	if [ "$?" == "0" ]; then
 		echo "complete"
@@ -30,8 +32,8 @@ ask(){
 	read -p "What hostname will you use? " hostN
 	hostnamectl set-hostname $hostN
 	echo "$IP $hostN" >> /etc/hosts
-	echo "echo $IP $hostN >> /etc/hosts" >> /root/test_didim365/install/wocker_node.sh
-	cat /root/kubeinit.txt |tail -n 2 >> /root/test_didim365/install/wocker_node.sh
+	echo "echo $IP $hostN >> /etc/hosts" >> /root/wocker_node.sh
+	cat /root/kubeinit.txt |tail -n 2 >> /root/wocker_node.sh
 }
 
 mk_master(){
@@ -71,5 +73,5 @@ echo ""
 echo "============================================="
 echo "======= Apply it to your workernodes. ======="
 echo "============================================="
-cat ~/wocker_node.sh
+cat /root/wocker_node.sh
 
