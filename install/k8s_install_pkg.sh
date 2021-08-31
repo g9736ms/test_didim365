@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#방화벽 끄기
+systemctl disable --now firewalld
+
 # kubernetes 저장소 등록
 gg_pkg="packages.cloud.google.com/yum/doc" # Due to shorten addr for key
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
