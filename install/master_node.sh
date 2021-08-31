@@ -48,6 +48,7 @@ mk_master(){
 	# kubeadm init --token $(사용할토큰) --token-ttl 0 --pod-network-cidr=$(IP/cider) --apiserver-advertise-address=$(컨트롤플레인IP)
 	sudo kubeadm init --token 123456.1234567890123456 --token-ttl 0 --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=$IP > /root/kubeinit.txt
 	check_status
+	echo "Execution contents can be checked in /root/kubeinit.txt "
 	
 	#아래는 kubeadm init 정상 완료시 나오는 내용들 입니다.
 	mkdir -p $HOME/.kube
@@ -68,6 +69,7 @@ mk_cni(){
 	kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml > /dev/null
 	#watch kubectl get pods -n calico-system
 	check_status
+	echo "[kubectl get pods -n calico-system] It can be checked."
 }
 
 ask
@@ -78,3 +80,4 @@ echo "============================================="
 echo "======= Apply it to your workernodes. ======="
 echo "============================================="
 cat ~/wocker_node.sh
+
