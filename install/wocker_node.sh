@@ -15,7 +15,7 @@ ask(){
                hostnamectl set-hostname $hostN
                echo "$IP $hostN" >> /etc/hosts
                echo "echo $IP $hostN >> /etc/hosts" >> $PWD/master_node.sh
-               echo "put it on master node"
+               echo "put it on other node"
                cat $PWD/master_node.sh
         ;;
         *)
