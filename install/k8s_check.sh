@@ -6,7 +6,7 @@ host=`cat /etc/hosts |wc -l`
 i=0
 
 ##MEM CHECK
-if [ "$mem" -gt 2000000 ];then
+if [ "$mem" -gt 2048000 ];then
         echo "mem okey"
 else
         echo "you must check the memory"
