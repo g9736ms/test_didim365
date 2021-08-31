@@ -15,8 +15,12 @@ ask(){
                hostnamectl set-hostname $hostN
                echo "$IP $hostN" >> /etc/hosts
                echo "echo $IP $hostN >> /etc/hosts" >> $PWD/master_node.sh
+               echo ""
+               echo "============================================"
                echo "put it on other node"
                cat $PWD/master_node.sh
+               echo "============================================"
+               echo ""
         ;;
         *)
                 echo "The IP form is different. "
