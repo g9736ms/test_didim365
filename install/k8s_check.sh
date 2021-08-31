@@ -26,10 +26,4 @@ else
         sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
         echo "SWAP okey"
 fi
-#hosts 추가 하기
-if [ "$host" -eq 2 ];then
-        echo "you must check in /etc/hosts"
-else
-        echo "hosts okay"
-fi
 
