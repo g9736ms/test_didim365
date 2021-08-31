@@ -33,9 +33,9 @@ ask(){
 	read -p "What hostname will you use? " hostN
 	hostnamectl set-hostname $hostN
 	echo "$IP $hostN" >> /etc/hosts
-	echo "echo $IP $hostN >> /etc/hosts" >> ~/wocker_node.sh
+	echo "echo $IP $hostN >> /etc/hosts" >> /root/test_didim365/install/wocker_node.sh
 	#init 으로 나온 파일 열어서 워커노드에 필요한 부분만 잘라서 붙여 넣기 하면됨 
-	cat kubeinit.txt |tail -n 2 >> wocker_node.sh
+	cat kubeinit.txt |tail -n 2 >> /root/test_didim365/install/wocker_node.sh
 }
 
 mk_master(){
