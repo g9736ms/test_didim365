@@ -1,10 +1,9 @@
 #!/bin/bash
 
+read -p "What is your master IP ? " IP
 #쿠버 네트워크랑 실 네트워크랑 대역폭이 겹치면 안됨
 # kubeadm init --token $(사용할토큰) --token-ttl 0 --pod-network-cidr=$(IP/cider) --apiserver-advertise-address=$(컨트롤플레인IP)
-sudo kubeadm init --token 123456.1234567890123456 \
- --token-ttl 0 --pod-network-cidr=192.168.0.0/16 \ 
- --apiserver-advertise-address=192.168.4.103 > /root/kubeinit.txt
+sudo kubeadm init --token 123456.1234567890123456 --token-ttl 0 --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=$IP > /root/kubeinit.txt
 
 #아래는 kubeadm init 정상 완료시 나오는 내용들 입니다.
 mkdir -p $HOME/.kube
