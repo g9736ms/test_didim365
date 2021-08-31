@@ -12,7 +12,7 @@ else
         echo "you must check the memory"
 fi
 #cpu check
-if [ "$cpu" -ge 4 ];then
+if [ "$cpu" -ge 2 ];then
         echo "cpu okey"
 else
         echo "you must check the cpu"
