@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ask(){
-        echo "What is your master IP ? "
+        echo "What is your worker-node IP ? "
         read -p "[ex : 192.168.0.120] # " IP
 
         case $IP in
