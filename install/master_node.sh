@@ -32,6 +32,7 @@ ask(){
 	hostnamectl set-hostname $hostN
 	echo "$IP $hostN" >> /etc/hosts
 	echo "echo $IP $hostN >> /etc/hosts" >> $PWD/wocker_node.sh
+	echo "" >> $PWD/wocker_node.sh
 	cat $PWD/kubeinit.txt |tail -n 2 >> $PWD/wocker_node.sh
 }
 
