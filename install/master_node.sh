@@ -15,6 +15,7 @@ ask(){
 
 	case $IP in
         *.*.*.*)
+		set_hosts
                 mk_master
         ;;
         *)
@@ -23,6 +24,12 @@ ask(){
         ;;
 	esac
 	
+
+
+	cat $PWD/kubeinit.txt |tail -n 2 >> $PWD/wocker_node.sh
+}
+
+set_hosts(){
 	echo ""
 	echo ""
 	echo "============"
@@ -33,7 +40,6 @@ ask(){
 	echo "$IP $hostN" >> /etc/hosts
 	echo "echo $IP $hostN >> /etc/hosts" >> $PWD/wocker_node.sh
 	echo "" >> $PWD/wocker_node.sh
-	cat $PWD/kubeinit.txt |tail -n 2 >> $PWD/wocker_node.sh
 }
 
 mk_master(){
