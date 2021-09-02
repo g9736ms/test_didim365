@@ -14,11 +14,10 @@ ask(){
                read -p "What hostname will you use? " hostN
                hostnamectl set-hostname $hostN
                echo "$IP $hostN" >> /etc/hosts
-               echo "echo $IP $hostN >> /etc/hosts" >> $PWD/master_node.sh
                echo ""
                echo "============================================"
                echo "put it on other node"
-               cat $PWD/master_node.sh
+               echo "echo $IP $hostN >> /etc/hosts" 
                echo "============================================"
                echo ""
         ;;
