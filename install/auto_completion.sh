@@ -14,3 +14,5 @@ echo 'alias k=kubectl' >> ~/.bashrc
 echo 'complete -F __start_kubectl k' >> ~/.bashrc
 
 source /usr/share/bash-completion/bash_completion
+
+su -
