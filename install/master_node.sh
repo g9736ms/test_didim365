@@ -23,9 +23,6 @@ ask(){
                 ask
         ;;
 	esac
-	
-
-
 	cat $PWD/kubeinit.txt |tail -n 2 >> $PWD/wocker_node.sh
 }
 
@@ -48,15 +45,12 @@ mk_master(){
 	echo "================================"
 	echo "set kubeadm , wait a few minite"
 	echo "================================"
-	
 	sudo kubeadm init --token 123456.1234567890123456 --token-ttl 0 --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=$IP > $PWD/kubeinit.txt
 	check_status
 	echo "Execution contents can be checked in $PWD/kubeinit.txt "
-	
 	mkdir -p $HOME/.kube
 	sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 	sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
 	export KUBECONFIG=/etc/kubernetes/admin.conf
 }
 
@@ -65,7 +59,6 @@ mk_cni(){
 	echo "================"
 	echo "set CNI (calico)"
 	echo "================"
-	
 	kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml > /dev/null
 	kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml > /dev/null
 	check_status
