@@ -16,5 +16,9 @@ spec:
       - image: nginx
         name: mynginx
         ports:
-        - containerPort: 80
+        - containerPort: 80     
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "echo Wow~!! update!!!  > /usr/share/message"]
 
