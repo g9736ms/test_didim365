@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
       - name: rollouts-demo #이미지를 변경하여 배포
-        image: argoproj/rollo
+        #image: argoproj/rollo
         #image: argoproj/rollouts-demo:blue 
-        #image: argoproj/rollouts-demo:green
+        image: argoproj/rollouts-demo:green
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
