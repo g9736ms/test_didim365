@@ -17,8 +17,4 @@ spec:
         name: mynginx
         ports:
         - containerPort: 80
-      command:
-      - /bin/sh
-      - -c
-      - >
-        echo "test11" > /usr/share/nginx/html/index.html;
+
