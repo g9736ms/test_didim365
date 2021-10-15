@@ -24,7 +24,7 @@ spec:
                 - /bin/sh
                 - -c
                 - >
-                  echo version1 > /usr/share/nginx/html/index.html;
+                  echo version2 > /usr/share/nginx/html/index.html;
   
 
         
