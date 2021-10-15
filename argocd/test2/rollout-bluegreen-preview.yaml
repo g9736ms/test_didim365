@@ -1,11 +1,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: rollout-bluegreen-preview
+  name: preview-service
 spec:
   type: LoadBalancer
   selector:
-    app: rollout-bluegreen
+    app: bluegreen-test
   ports:
   - protocol: TCP
     port: 80
