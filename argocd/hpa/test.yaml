@@ -15,7 +15,9 @@ spec:
     spec:
       containers:
       - name: bluegreen-test
-        image: vish/stress
+        image: k8s.gcr.io/hpa-example
+        ports:
+        - containerPort: 80
         resources:
           limits:
             cpu: "100m"
