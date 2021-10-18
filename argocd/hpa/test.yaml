@@ -30,5 +30,4 @@ spec:
   strategy:
     blueGreen:
       activeService: active-service
-      previewService: preview-service
       autoPromotionEnabled: true
