@@ -1,19 +1,20 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1   
+kind: Rollout  # Deplyment 대신 Rollout을 사용한다
 metadata:
-  name: php-apache
+  name: bluegreen-test
 spec:
+  replicas: 1
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
-      run: php-apache
-  replicas: 1
+      app: bluegreen-test
   template:
     metadata:
       labels:
-        run: php-apache
+        app: bluegreen-test
     spec:
       containers:
-      - name: php-apache
+      - name: bluegreen-test
         image: k8s.gcr.io/hpa-example
         ports:
         - containerPort: 80
@@ -24,15 +25,10 @@ spec:
           requests:
             memory: "10Mi"
             cpu: 200m
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: php-apache
-  labels:
-    run: php-apache
-spec:
-  ports:
-  - port: 80
-  selector:
-    run: php-apache
+
+
+  strategy:
+    blueGreen:
+      activeService: active-service
+      autoPromotionEnabled: true
+
