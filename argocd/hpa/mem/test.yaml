@@ -15,15 +15,16 @@ spec:
     spec:
       containers:
       - name: bluegreen-test
-        image: k8s.gcr.io/hpa-example
+        image: ngnix
+        #image: k8s.gcr.io/hpa-example
         ports:
         - containerPort: 80
         resources:
           limits:
-            memory: "500Mi"
+            memory: "150Mi"
             cpu: 50m
           requests:
-            memory: "10Mi"
+            memory: "100Mi"
             cpu: 20m
 
 
