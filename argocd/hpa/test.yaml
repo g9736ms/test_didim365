@@ -19,10 +19,8 @@ spec:
         resources:
           limits:
             cpu: "2"
-            memory: "150Mi"
           requests:
             cpu: "0.5"
-            memory: "50Mi"
         args:
         - -cpus
         - "1"
