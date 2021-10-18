@@ -31,4 +31,19 @@ spec:
     blueGreen:
       activeService: active-service
       autoPromotionEnabled: true
+      
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: active-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: bluegreen-test
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
 
