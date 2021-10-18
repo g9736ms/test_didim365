@@ -15,15 +15,7 @@ spec:
     spec:
       containers:
       - name: bluegreen-test
-        image: polinux/stress
-        resources:
-          limits:
-            cpu: "2"
-          requests:
-            cpu: "0.5"
-        args:
-        - -cpus
-        - "1"
+        image: nginx
 
   strategy:
     blueGreen:
