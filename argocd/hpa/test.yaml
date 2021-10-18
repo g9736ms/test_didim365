@@ -19,7 +19,7 @@ kind: Rollout  # Deplyment 대신 Rollout을 사용한다
 metadata:
   name: bluegreen-test
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 2
   selector:
     matchLabels:
