@@ -38,9 +38,9 @@ spec:
             memory: "150Mi"
           requests:
             cpu: "10m"
-            memory: "100Mi"
+            memory: "50Mi"
         command: ["stress"]
-        args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
+        args: ["--vm", "1", "--vm-bytes", "100M", "--vm-hang", "1"]
 
   strategy:
     blueGreen:
