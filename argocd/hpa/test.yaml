@@ -47,7 +47,7 @@ spec:
         #image: argoproj/rollo
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 
   strategy:
     blueGreen:
