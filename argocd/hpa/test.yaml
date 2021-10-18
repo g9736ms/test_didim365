@@ -8,5 +8,36 @@ spec:
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
-    name: example-rollout
+    name: bluegreen-test
   targetCPUUtilizationPercentage: 80
+  
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout  # Deplyment 대신 Rollout을 사용한다
+metadata:
+  name: bluegreen-test
+spec:
+  replicas: 4
+  revisionHistoryLimit: 4
+  selector:
+    matchLabels:
+      app: bluegreen-test
+  template:
+    metadata:
+      labels:
+        app: bluegreen-test
+    spec:
+      containers:
+      - name: rollouts-demo #이미지를 변경하여 배포
+        #image: argoproj/rollouts-demo:blue
+        #image: argoproj/rollouts-demo:green
+        image: argoproj/rollo
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+  strategy:
+    blueGreen:
+      activeService: active-service
+      previewService: preview-service
+      autoPromotionEnabled: true
