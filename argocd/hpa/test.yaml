@@ -1,27 +1,16 @@
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: dev-www-autoscaling
+  creationTimestamp: null
+  name: bluegreen-apache
 spec:
+  maxReplicas: 10
+  minReplicas: 1
   scaleTargetRef:
-    apiVersion: argoproj.io/v1alpha1
+    apiVersion: apps/v1
     kind: Rollout
     name: bluegreen-test
-  minReplicas: 2
-  maxReplicas: 6
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 100
-  - type: Resource
-    resource:
-      name: memory
-      target:
-        type: Utilization
-        averageUtilization: 100
+  targetCPUUtilizationPercentage: 50
 
 ---
 
@@ -45,10 +34,10 @@ spec:
         image: polinux/stress
         resources:
           limits:
-            cpu: "200m"
+            cpu: "100m"
             memory: "150Mi"
           requests:
-            cpu: "100m"
+            cpu: "10m"
             memory: "100Mi"
         command: ["stress"]
         args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
