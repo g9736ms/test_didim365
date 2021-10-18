@@ -15,7 +15,7 @@ spec:
       name: memory
       target:
         type: Utilization
-        averageUtilization: 10
+        averageUtilization: 70
   - type: Resource
     resource:
       name: CPU
