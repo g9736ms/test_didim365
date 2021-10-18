@@ -15,13 +15,13 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 90
+        averageUtilization: 40
   - type: Resource
     resource:
       name: memory
       target:
         type: Utilization
-        averageUtilization: 90
+        averageUtilization: 40
 
 ---
 
@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
       - name: rollouts-demo #이미지를 변경하여 배포
-        image: argoproj/rollouts-demo:blue
+        image: nginx
         #image: argoproj/rollouts-demo:green
         #image: argoproj/rollo
         imagePullPolicy: Always
