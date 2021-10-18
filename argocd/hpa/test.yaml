@@ -14,7 +14,7 @@ spec:
         app: bluegreen-test
     spec:
       containers:
-      - name: mem-test
+      - name: bluegreen-test
         image: polinux/stress
         resources:
           limits:
