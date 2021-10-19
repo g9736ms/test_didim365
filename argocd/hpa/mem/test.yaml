@@ -22,10 +22,10 @@ spec:
         resources:
           limits:
             memory: "150Mi"
-            cpu: 50m
+            cpu: 20m
           requests:
             memory: "100Mi"
-            cpu: 20m
+            cpu: 5m
 
 
   strategy:
