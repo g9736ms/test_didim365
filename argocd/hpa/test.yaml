@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: bluegreen-test
-        image: k8s.gcr.io/hpa-example
+        #image: k8s.gcr.io/hpa-example
+        image: nginx
         ports:
         - containerPort: 80
         resources:
