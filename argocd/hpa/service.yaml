@@ -4,7 +4,7 @@ metadata:
   name: active-service
 spec:
   #type: LoadBalancer
-  
+  type: ClusterIP
   selector:
     app: bluegreen-test
   ports:
