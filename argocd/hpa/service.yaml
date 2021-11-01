@@ -3,7 +3,8 @@ apiVersion: v1
 metadata:
   name: active-service
 spec:
-  type: LoadBalancer
+  #type: LoadBalancer
+  
   selector:
     app: bluegreen-test
   ports:
