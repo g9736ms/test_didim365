@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         run: mynginx
+        test: is
     spec:
       containers:
       - image: nginx:1.18
