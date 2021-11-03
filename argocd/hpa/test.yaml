@@ -17,6 +17,9 @@ spec:
       - name: bluegreen-test
         #image: k8s.gcr.io/hpa-exa
         image: nginx
+        env:
+        - name: TZ
+          value: Asia/Tokyo
         ports:
         - containerPort: 80
         resources:
