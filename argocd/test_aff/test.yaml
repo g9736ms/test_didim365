@@ -4,7 +4,7 @@ metadata:
   name: test-aff
   namespace: test
 spec:
-  replicas: 7
+  replicas: 10
   revisionHistoryLimit: 2
   selector:
     matchLabels:
