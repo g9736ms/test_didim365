@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1   
-kind: Rollout  # Deplyment 대신 Rollout을 사용한다
+kind: Rollout
 metadata:
   name: test-aff
   namespace: test
@@ -19,10 +19,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: ncloud.com/nks-nodepool
+              - key: #node에 설정된 라벨 키
                 operator: In
                 values:
-                - prd-api-pool1
+                - #그 키 값에 대한 값
       containers:
       - name: web-app
         image: nginx:1.16-alpine
