@@ -4,7 +4,7 @@ metadata:
   name: test-aff
   namespace: test
 spec:
-  replicas: 10
+  replicas: 12
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -22,7 +22,7 @@ spec:
               - key: ncloud.com/nks-nodepool
                 operator: In
                 values:
-                - prd-api-pool
+                - prd-api-pool1
       containers:
       - name: web-app
         image: nginx:1.16-alpine
