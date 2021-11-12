@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server
+  namespace: test
+spec:
+  selector:
+    matchLabels:
+      app: web-store
+  replicas: 7
+  template:
+    metadata:
+      labels:
+        app: web-store
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: ncloud.com/nks-nodepool
+                operator: In
+                values:
+                - prd-api-pool
+      containers:
+      - name: web-app
+        image: nginx:1.16-alpine
