@@ -39,6 +39,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: active-service
+  namespace: test
 spec:
   type: LoadBalancer
   selector:
