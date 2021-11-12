@@ -1,18 +1,17 @@
 apiVersion: argoproj.io/v1alpha1   
 kind: Rollout  # Deplyment 대신 Rollout을 사용한다
 metadata:
-  name: web-server
-  namespace: test
+  name: test-aff
 spec:
+  replicas: 7
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: web-store
-  replicas: 7
+      app:  test-aff
   template:
     metadata:
       labels:
-        app: web-store
+        app: test-aff
     spec:
       affinity:
         nodeAffinity:
@@ -26,7 +25,8 @@ spec:
       containers:
       - name: web-app
         image: nginx:1.16-alpine
-
+        ports:
+        - containerPort: 8080
   strategy:
     blueGreen:
       activeService: active-service
