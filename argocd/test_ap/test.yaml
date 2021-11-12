@@ -1,9 +1,10 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1   
+kind: Rollout  # Deplyment 대신 Rollout을 사용한다
 metadata:
   name: web-server
   namespace: test
 spec:
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: web-store
@@ -25,3 +26,8 @@ spec:
       containers:
       - name: web-app
         image: nginx:1.16-alpine
+
+  strategy:
+    blueGreen:
+      activeService: active-service
+      autoPromotionEnabled: true
