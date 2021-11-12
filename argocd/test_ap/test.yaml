@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout  # Deplyment 대신 Rollout을 사용한다
 metadata:
   name: test-aff
+  namespace: test
 spec:
   replicas: 7
   revisionHistoryLimit: 2
