@@ -43,7 +43,7 @@ yum install git -y
 # docker 설치
 yum install docker-ce-19.03.14-3.el7 docker-ce-cli-19.03.14-3.el7 containerd.io-1.3.9-3.1.el7 -y
 # kubernetes 설치
-yum install kubelet-1.22.2 kubectl-1.22.2 kubeadm-1.22.2 -y
+yum install kubelet-1.22.4 kubectl-1.22.4 kubeadm-1.22.4 -y
 # 데몬 등록 및 시작
 systemctl enable --now docker
 systemctl enable --now kubelet
